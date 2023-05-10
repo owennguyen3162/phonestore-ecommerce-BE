@@ -1,0 +1,428 @@
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="apple-touch-icon" sizes="76x76" href="../assets/img/apple-icon.png">
+    <link rel="stylesheet" type="text/css"
+        href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700,900|Roboto+Slab:400,700" />
+    <link href="../assets/css/nucleo-icons.css" rel="stylesheet" />
+    <link href="../assets/css/nucleo-svg.css" rel="stylesheet" />
+    <script src="https://kit.fontawesome.com/42d5adcbca.js" crossorigin="anonymous"></script>
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons+Round" rel="stylesheet">
+    <link id="pagestyle" href="../assets/css/material-dashboard.css?v=3.0.4" rel="stylesheet" />
+</head>
+
+<body class="g-sidenav-show  bg-gray-200">
+    <aside
+        class="sidenav navbar navbar-vertical navbar-expand-xs border-0 border-radius-xl my-3 fixed-start ms-3   bg-gradient-dark"
+        id="sidenav-main">
+        <div class="sidenav-header">
+            <i class="fas fa-times p-3 cursor-pointer text-white opacity-5 position-absolute end-0 top-0 d-none d-xl-none"
+                aria-hidden="true" id="iconSidenav"></i>
+            <a class="navbar-brand m-0" href=" https://demos.creative-tim.com/material-dashboard/pages/dashboard "
+                target="_blank">
+                <span class="ms-1 font-weight-bold text-white">HI ADMIN</span>
+            </a>
+        </div>
+        <hr class="horizontal light mt-0 mb-2">
+        <div class="collapse navbar-collapse  w-auto " id="sidenav-collapse-main">
+            <ul class="navbar-nav">
+                <li class="nav-item">
+                    <a class="nav-link text-white " href="/product">
+                        <span class="nav-link-text ms-1">Danh sách sản phẩm</span>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link text-white active bg-gradient-primary" href="/product/add-product">
+                        <span class="nav-link-text ms-1">Thêm sản phẩm</span>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link text-white " href="/user">
+                        <span class="nav-link-text ms-1">Danh Sách người dùng</span>
+                    </a>
+                </li>
+                <li class="nav-item">
+                   <a class="nav-link text-white" href="/order">
+                        <span class="nav-link-text ms-1">Đơn hàng</span>
+                    </a>
+                </li>
+                <li class="nav-item mt-3">
+                    <h6 class="ps-4 ms-2 text-uppercase text-xs text-white font-weight-bolder opacity-8">Quản lí tài
+                        khoản</h6>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link text-white " href="../pages/profile.html">
+                        <span class="nav-link-text ms-1">tài khoản</span>
+                    </a>
+                </li>
+            </ul>
+        </div>
+        </div>
+    </aside>
+    <main class="main-content position-relative max-height-vh-100 h-100 border-radius-lg ">
+    <!-- Navbar -->
+    <nav class="navbar navbar-main navbar-expand-lg px-0 mx-4 shadow-none border-radius-xl  mt-5" id="navbarBlur"
+        data-scroll="true">
+        <div class="container-fluid py-1 px-3">
+            <nav aria-label="breadcrumb">
+                <h6 class="font-weight-bolder mb-0">THÊM SẢN PHẨM</h6>
+            </nav>
+            <div class="collapse navbar-collapse mt-sm-0 mt-2 me-md-0 me-sm-4" id="navbar">
+                <ul class="navbar-nav  justify-content-end">
+                    <li class="nav-item d-xl-none ps-3 d-flex align-items-center">
+                        <a href="javascript:;" class="nav-link text-body p-0" id="iconNavbarSidenav">
+                            <div class="sidenav-toggler-inner">
+                                <i class="sidenav-toggler-line"></i>
+                                <i class="sidenav-toggler-line"></i>
+                                <i class="sidenav-toggler-line"></i>
+                            </div>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+    <!-- End Navbar -->
+    <div class="container-fluid py-4">
+        <div class="row">
+            <div class="col-12">
+                <div class="card my-4">
+                    <div class="card-body px-0 pb-2 ">
+                        <form method="post" action="/product/add-product/store"  enctype="multipart/form-data">
+                            <div class="mb-3 mx-5 p-2">
+                                <div class="row">
+                                    <div class="col-lg-12  text-center mb-3">
+                                        <img class="rounded-0" style="width: 150px; height: 150px; margin-bottom: 10px;"
+                                            src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAOEAAADhCAMAAAAJbSJIAAAAOVBMVEW7u7vz8/O4uLi8vLzy8vLe3t7m5ubZ2dn29vbv7+/5+fm1tbW/v7/g4ODr6+vU1NTKysrOzs7FxcW1L4+vAAAD+UlEQVR4nO3bi27iMBAFUHvsJBPbJCH//7E7Yx4bKKG0m4hhdc9KK7UU5Itf4xCcAwAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAADYQyAXdkLBhXfHE6E42okjCwnljR67nYyjDJC3ozIk3ksaDPQhjey9Z/1vaxy9Hw10YsMcY79PPs+H9yekg5emcLs9CRh9YyBhw577ifLmpugj20gY+fCL59Vd9NnjdJDJ3ejf/b51W9CE0o6fv9XSbnrS+HBN+O49sfbhL8ZSoFICUVl93GVLCX++4tHc9uz7Ma//ieWEUk+6Wlauto2apHuBly19rWwJuoZZTajZcqhz83Hzcw1Yd72eVgLYTijLRJdkC1lpPc2neJF9TOPKCxtPSLP8NrXz42lW198aUf+tJLCdkFx7GoNNyTon7xpJw7I6mx+/sOmEFKZzJZ68rJZUz7LLx+OiUE/T4xc2nTDkyyDsmfuZ7g+y1H96H+bu0kdy7JCqfM63W0Jufbwm7D9vLZVqJcbol93UyUhdDFRZh3x9D3qth/LHrTSBDqm/ORHLD2NebO0ke8kpIGsXflxC7SF/04deD1jzoq+I9NwsY1hn6UpRYzahNHi4y3fa91Jb/naiy1PrtS51awHtJnR5XLtmk7qQy+UaqNQ7pVyLHj0q3lWxZhOSe3LNRs8S5z7T4+HlVBm0Vr/vS7sJO74fo4vRykM5T8d6wj+3neZO6rtP6cMS1xPqA+lwmo7LPPIcbj6kD3WnWO/CirnT6VcuLQ96WNSRPZJ0L7nLxmkyoS6R/GSQnjuS+ylf11DS3UWvR8bUH09l+nmiWkwoBenA8cte8WUyRjlXLWbuoFd/pUaIvi35On5tJpSd4q5ge6TXodqcR2PQ3UWfos9bTkebCd236RZGIl10bg4a0psjnUKZTJib1z+gkWcNR9ki8t3uwn6Y5NWKzYQlvf4JjdbmLPOu+HjztsgslV/XNdVeQmp/8CEb12TctXw3cTUidzJLzSUkml7Ptwj6QN1QbF3V14Th5vrSP+GeU5udtT7MY/q+7S+LDVnrQwob5qsfHFqbh0/PFL9gL+G87b0K9vqQzrXXf5yw85uOUpMJN4WESIiESIiESPhxCbWIHL+9jPg6faEmW0vYbXgXbYx1WBhLOKXtSm+WN+vojCV0dNz0hvZjLsbuawsbfyXBUcmtnYSep7xtQKH3CBtK6De/y/vQ1utwVhLGPb5sUTefg4G7oMfUR13fNycv2icD37fQ78z4PbpQdoxk4jszEnHP7z29O52rNwFvvoz+XU/fnQ4AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA4GP9AeMaRV6pmy05AAAAAElFTkSuQmCC"
+                                            alt="Avatar" id="img">
+                                    </div>
+                                    <div class="">
+                                            <input type="file" class="form-control" name="imageProduct" required id="file" onchange="loadFile(event)"  multiple/>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="mb-3 mx-5">
+                                <label for="exampleInputPassword1" class="form-label">tên sản phẩm</label>
+                                <input type="text" class="form-control border border-dark ps-2" id="name"
+                                    name="name">
+                            </div>
+                            <div class="mb-3 mx-5">
+                                <label for="exampleInputEmail1" class="form-label">đơn giá</label>
+                                <input type="number" class="form-control border border-dark ps-2" id='price'
+                                    name="price">
+                            </div>
+                            <div class="mb-3 mx-5">
+                                <label for="exampleInputPassword1" class="form-label">màu sắc 1</label>
+                                <input type="text" class="form-control border border-dark ps-2" id="color" name="color">
+                            </div>
+                             <div class="mb-3 mx-5">
+                                <label for="exampleInputPassword1" class="form-label">màu sắc 2</label>
+                                <input type="text" class="form-control border border-dark ps-2" id="color" name="color">
+                            </div>
+                             <div class="mb-3 mx-5">
+                                <label for="exampleInputPassword1" class="form-label">màu sắc 3</label>
+                                <input type="text" class="form-control border border-dark ps-2" id="color" name="color">
+                            </div>
+                            <div class="mb-3 mx-5">
+                                <label for="exampleInputEmail1" class="form-label">loại hàng</label>
+                                <select class="form-select p-lg-2 border border-dark ps-2" name="category" id="category">
+                                    <option value="iphone">I Phone </option>
+                                    <option value="samsung">SamSung </option>
+                                    <option value="oppo">Oppo</option>
+                                </select>
+                            </div>
+                             <div class="mb-3 mx-5">
+                                <label for="exampleInputPassword1" class="form-label">nội dung</label>
+                                <textarea type="text" class="form-control border border-dark ps-2" id="description" name="description" ></textarea>
+                            </div>
+                            <div class="container-fluid text-center">
+                                <button style="width: 95%; background-color: Purple ;" type="submit"
+                                    class="btn btn-primary mt-3" > THÊM SẢN
+                                    PHẨM</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    </div>
+</main>
+
+    <!--   Core JS Files   -->
+    <script src="../assets/js/core/popper.min.js"></script>
+    <script src="../assets/js/core/bootstrap.min.js"></script>
+    <script src="../assets/js/plugins/perfect-scrollbar.min.js"></script>
+    <script src="../assets/js/plugins/smooth-scrollbar.min.js"></script>
+    <script src="../assets/js/plugins/chartjs.min.js"></script>
+    <script>
+         const img = document.getElementById("img");
+        const loadFile = (event) => {
+            img.src = URL.createObjectURL(event.target.files[0]);
+        }
+
+        var ctx = document.getElementById("chart-bars").getContext("2d");
+
+        new Chart(ctx, {
+            type: "bar",
+            data: {
+                labels: ["M", "T", "W", "T", "F", "S", "S"],
+                datasets: [{
+                    label: "Sales",
+                    tension: 0.4,
+                    borderWidth: 0,
+                    borderRadius: 4,
+                    borderSkipped: false,
+                    backgroundColor: "rgba(255, 255, 255, .8)",
+                    data: [50, 20, 10, 22, 50, 10, 40],
+                    maxBarThickness: 6
+                },],
+            },
+            options: {
+                responsive: true,
+                maintainAspectRatio: false,
+                plugins: {
+                    legend: {
+                        display: false,
+                    }
+                },
+                interaction: {
+                    intersect: false,
+                    mode: 'index',
+                },
+                scales: {
+                    y: {
+                        grid: {
+                            drawBorder: false,
+                            display: true,
+                            drawOnChartArea: true,
+                            drawTicks: false,
+                            borderDash: [5, 5],
+                            color: 'rgba(255, 255, 255, .2)'
+                        },
+                        ticks: {
+                            suggestedMin: 0,
+                            suggestedMax: 500,
+                            beginAtZero: true,
+                            padding: 10,
+                            font: {
+                                size: 14,
+                                weight: 300,
+                                family: "Roboto",
+                                style: 'normal',
+                                lineHeight: 2
+                            },
+                            color: "#fff"
+                        },
+                    },
+                    x: {
+                        grid: {
+                            drawBorder: false,
+                            display: true,
+                            drawOnChartArea: true,
+                            drawTicks: false,
+                            borderDash: [5, 5],
+                            color: 'rgba(255, 255, 255, .2)'
+                        },
+                        ticks: {
+                            display: true,
+                            color: '#f8f9fa',
+                            padding: 10,
+                            font: {
+                                size: 14,
+                                weight: 300,
+                                family: "Roboto",
+                                style: 'normal',
+                                lineHeight: 2
+                            },
+                        }
+                    },
+                },
+            },
+        });
+
+
+        var ctx2 = document.getElementById("chart-line").getContext("2d");
+
+        new Chart(ctx2, {
+            type: "line",
+            data: {
+                labels: ["Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"],
+                datasets: [{
+                    label: "Mobile apps",
+                    tension: 0,
+                    borderWidth: 0,
+                    pointRadius: 5,
+                    pointBackgroundColor: "rgba(255, 255, 255, .8)",
+                    pointBorderColor: "transparent",
+                    borderColor: "rgba(255, 255, 255, .8)",
+                    borderColor: "rgba(255, 255, 255, .8)",
+                    borderWidth: 4,
+                    backgroundColor: "transparent",
+                    fill: true,
+                    data: [50, 40, 300, 320, 500, 350, 200, 230, 500],
+                    maxBarThickness: 6
+
+                }],
+            },
+            options: {
+                responsive: true,
+                maintainAspectRatio: false,
+                plugins: {
+                    legend: {
+                        display: false,
+                    }
+                },
+                interaction: {
+                    intersect: false,
+                    mode: 'index',
+                },
+                scales: {
+                    y: {
+                        grid: {
+                            drawBorder: false,
+                            display: true,
+                            drawOnChartArea: true,
+                            drawTicks: false,
+                            borderDash: [5, 5],
+                            color: 'rgba(255, 255, 255, .2)'
+                        },
+                        ticks: {
+                            display: true,
+                            color: '#f8f9fa',
+                            padding: 10,
+                            font: {
+                                size: 14,
+                                weight: 300,
+                                family: "Roboto",
+                                style: 'normal',
+                                lineHeight: 2
+                            },
+                        }
+                    },
+                    x: {
+                        grid: {
+                            drawBorder: false,
+                            display: false,
+                            drawOnChartArea: false,
+                            drawTicks: false,
+                            borderDash: [5, 5]
+                        },
+                        ticks: {
+                            display: true,
+                            color: '#f8f9fa',
+                            padding: 10,
+                            font: {
+                                size: 14,
+                                weight: 300,
+                                family: "Roboto",
+                                style: 'normal',
+                                lineHeight: 2
+                            },
+                        }
+                    },
+                },
+            },
+        });
+
+        var ctx3 = document.getElementById("chart-line-tasks").getContext("2d");
+
+        new Chart(ctx3, {
+            type: "line",
+            data: {
+                labels: ["Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"],
+                datasets: [{
+                    label: "Mobile apps",
+                    tension: 0,
+                    borderWidth: 0,
+                    pointRadius: 5,
+                    pointBackgroundColor: "rgba(255, 255, 255, .8)",
+                    pointBorderColor: "transparent",
+                    borderColor: "rgba(255, 255, 255, .8)",
+                    borderWidth: 4,
+                    backgroundColor: "transparent",
+                    fill: true,
+                    data: [50, 40, 300, 220, 500, 250, 400, 230, 500],
+                    maxBarThickness: 6
+
+                }],
+            },
+            options: {
+                responsive: true,
+                maintainAspectRatio: false,
+                plugins: {
+                    legend: {
+                        display: false,
+                    }
+                },
+                interaction: {
+                    intersect: false,
+                    mode: 'index',
+                },
+                scales: {
+                    y: {
+                        grid: {
+                            drawBorder: false,
+                            display: true,
+                            drawOnChartArea: true,
+                            drawTicks: false,
+                            borderDash: [5, 5],
+                            color: 'rgba(255, 255, 255, .2)'
+                        },
+                        ticks: {
+                            display: true,
+                            padding: 10,
+                            color: '#f8f9fa',
+                            font: {
+                                size: 14,
+                                weight: 300,
+                                family: "Roboto",
+                                style: 'normal',
+                                lineHeight: 2
+                            },
+                        }
+                    },
+                    x: {
+                        grid: {
+                            drawBorder: false,
+                            display: false,
+                            drawOnChartArea: false,
+                            drawTicks: false,
+                            borderDash: [5, 5]
+                        },
+                        ticks: {
+                            display: true,
+                            color: '#f8f9fa',
+                            padding: 10,
+                            font: {
+                                size: 14,
+                                weight: 300,
+                                family: "Roboto",
+                                style: 'normal',
+                                lineHeight: 2
+                            },
+                        }
+                    },
+                },
+            },
+        });
+    </script>
+    <script>
+        var win = navigator.platform.indexOf('Win') > -1;
+        if (win && document.querySelector('#sidenav-scrollbar')) {
+            var options = {
+                damping: '0.5'
+            }
+            Scrollbar.init(document.querySelector('#sidenav-scrollbar'), options);
+        }
+    </script>
+    <!-- Github buttons -->
+    <script async defer src="https://buttons.github.io/buttons.js"></script>
+    <!-- Control Center for Material Dashboard: parallax effects, scripts for the example pages etc -->
+    <script src="../assets/js/material-dashboard.min.js?v=3.0.4"></script>
+</body>
+
+</html>

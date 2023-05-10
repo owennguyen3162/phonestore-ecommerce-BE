@@ -1,0 +1,74 @@
+<body class="bg-gray-200">
+    <div class="container position-sticky z-index-sticky top-0">
+    </div>
+    <main class="main-content  mt-0">
+        <div class="page-header align-items-start min-vh-100"
+            style="background-image: url('https://images.unsplash.com/photo-1620641788421-7a1c342ea42e?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8NXx8cHVycGxlJTIwZ3JhZGllbnR8ZW58MHx8MHx8&w=1000&q=80');">
+            <span class="mask bg-gradient-dark opacity-6"></span>
+            <div class="container my-auto">
+                <div class="row">
+                    <div class="col-lg-5 col-md-8 col-12 mx-auto">
+                        <div class="card z-index-0 fadeIn3 fadeInBottom">
+                            <div class="card-body">
+                                <form role="form" class="text-start" method="get" id="theFormID" action="/product">
+                                    <h2>Đăng nhập</h2>
+                                    <div class="input-group input-group-outline my-3">
+                                        <input id="phone" type="number" class="form-control"
+                                            placeholder="Nhập số điện thoại">
+                                    </div>
+                                    <div class="input-group input-group-outline mb-3">
+                                        <input id="password" type="password" class="form-control"
+                                            placeholder="Nhập mật khẩu">
+                                    </div>
+                                    <div class="text-center">
+                                        <button type="button" style="background-color: purple;color: #fff;"
+                                            class="btn  w-100 my-4 mb-2" onclick="handleLogin()">ĐĂNG NHẬp</button>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+    <script>
+        const handleLogin = async () => {
+            const phone = document.getElementById('phone').value;
+            const password = document.getElementById('password').value;
+            if (phone.trim() === "" || password.trim() === "") {
+                Swal.fire(
+                    'Thông báo!',
+                    'Vui lòng nhập đầy đủ thông tin !!',
+                    'error'
+                )
+                return;
+            } else {
+                const response = await fetch('http://localhost:3000/admin/login-account', {
+                    method: 'POST',
+                    body: JSON.stringify({ phone: phone, password: password }),
+                    headers: {
+                        'Content-Type': 'application/json'
+                    }
+                }).then(async (res) => {
+                    if (res.status === 200) {
+                        const json = await res.json();
+                        document.getElementById("theFormID").submit();
+
+                    } else if (res.status === 404) {
+                        Swal.fire(
+                            'Thông báo!',
+                            'Số điện thoại không tồn tại !!',
+                            'error'
+                        )
+                    } else {
+                        Swal.fire(
+                            'Thông báo!',
+                            'Đăng nhập thất bại !!',
+                            'error'
+                        )
+                    }
+                }).catch((error) => alert(error));
+            }
+        }
+    </script>
